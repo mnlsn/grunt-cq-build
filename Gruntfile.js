@@ -10,14 +10,14 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     watch: {
         author: {
-          files: ['<%= pkg.options.projectapps %>/**/*.js', '<%= pkg.options.projectapps %>/**/*.jsp', '<%= pkg.options.projectapps %>/**/*.css', '<%= pkg.options.projectetc %>/**/*.css', '<%= pkg.options.projectetc %>/**/*.js'],
+          files: ['<%= pkg.options.projectapps %>/**/*.js', '<%= pkg.options.projectapps %>/**/*.jsp', '<%= pkg.options.projectapps %>/**/*.css', '<%= pkg.options.projectapps %>/**/*.less', '<%= pkg.options.projectetc %>/**/*.css', '<%= pkg.options.projectetc %>/**/*.less', '<%= pkg.options.projectetc %>/**/*.js'],
           tasks: ['slingPost:author'],
           options: {
             nospawn: true
           }
         },
         publish: {
-          files: ['<%= pkg.options.projectapps %>/**/*.js', '<%= pkg.options.projectapps %>/**/*.jsp', '<%= pkg.options.projectapps %>/**/*.css', '<%= pkg.options.projectetc %>/**/*.css', '<%= pkg.options.projectetc %>/**/*.js'],
+          files: ['<%= pkg.options.projectapps %>/**/*.js', '<%= pkg.options.projectapps %>/**/*.jsp', '<%= pkg.options.projectapps %>/**/*.css', '<%= pkg.options.projectapps %>/**/*.less', '<%= pkg.options.projectetc %>/**/*.css', '<%= pkg.options.projectetc %>/**/*.less', '<%= pkg.options.projectetc %>/**/*.js'],
           tasks: ['slingPost:publish'],
           options: {
             nospawn: true
@@ -53,12 +53,9 @@ grunt.event.on('watch', function(action, filepath, target) {
   grunt.config.set(['slingPost', 'author', 'dest'], ['/' + path.dirname(filepath)]);
   grunt.config.set(['slingPost', 'publish', 'src'], [path.dirname(filepath) + '/']);
   grunt.config.set(['slingPost', 'publish', 'dest'], ['/' + path.dirname(filepath)]);
-
 });
 
-  grunt.registerTask('dist', ['clean:copy', 'copy:bootstrap-css', 'copy:jquery-js']);
-  grunt.registerTask('install', ['shell:install']);
-  grunt.registerTask('deploy', 'slingPost');
+
   grunt.registerTask('author', 'watch:author');
   grunt.registerTask('publish', 'watch:publish');
   grunt.registerTask('default', ['watch']);
