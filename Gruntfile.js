@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         options: {
           stdout: true,
         },
-        command: '/./<%= pkg.options.cqroot %>publish/crx-quickstart/bin/start &'
+        command: '/./<%= pkg.options.cqroot %>publish/crx-quickstart/bin/start'
       },
       startAuthor: {
         options: {

@@ -14,6 +14,33 @@ To start using grunt for CQ's UI purposes, place the `package.json` & `Gruntfile
 
 That will install the grunt plugins needed for our Gruntfile to work.
 
+## Package Options
+The options area in `package.json` is the only area to edit to work with your project. Any directory path should end with a `/` but never start with one.
+
+```js
+  "options": {
+    "host": "localhost",
+    "author": "4502",
+    "publish": "4503",
+    "user": "admin",
+    "password": "admin",
+    "projectroot": "**THE LOCAL DIRECTORY PATH OF THE PROJECT**",
+    "projectapps": "**THE APPS FOLDER FOR PROJECT IN JCR_ROOT**",
+    "projectetc": "**THE ETC FOLDER FOR PROJECT IN JCR_ROOT**",
+    "projectimg": "**THE IMG FOLDER FOR PROJECT IN CLIENTLIBS**",
+    "cqroot": "**THE LOCAL PATH FOR CQ PUBLISH & AUTHOR JARS**",
+    "mvnpublish": "**mvn clean install local-publish**",
+    "mvnauthor": "**mvn clean install local-author**"
+  }
+```
+
+* `projectroot` is the full path of the project files on your local machine.
+* `projectapps` is the structure to your project apps files from the `jcr_root` folder - this has to be the same on both your local machine and in CRX
+* `projectetc` is the structure to your project etc files from the `jcr_root` folder - this has to be the same on both your local machine and in CRX
+* `projectimg` is the structure to your project images folder from the end of the `projectetc` folder
+* `cqroot` is the path to your CQ publish and author JARs for the project - only need if you want to start your instances using Grunt
+* `mvnpublish` and `mvnauthor` are the full maven commands you'd like to use to build to publish or author
+
 ## Tasks
 
 Grunt has tons of plugins that we can use, but this is just a starter package that allows you to use sling to push changes done in the UI directory to CQ without having to do full builds. This doesn't fully replace maven builds, as you still do those for any changes in the core or files in UI that we are not watching for, dialogs and content.xml's for example. Grunt's [website](http://gruntjs.com) is well documented on how to set up your own tasks if you'd like to add more specialized tasks for your project.

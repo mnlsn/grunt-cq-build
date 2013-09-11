@@ -14,12 +14,12 @@
     "publish": "4503",
     "user": "admin",
     "password": "admin",
-    "projectroot": "apps/adobe/cq/5.5/release-1.15/",
-    "projectapps": "apps/mymove/components/content/",
-    "projectetc": "etc/designs/mymove/",
-    "projectimg": "docroot/clientlibs/img/",
-    "cqroot": "apps/adobe/cq/5.5/",
-    "mvnpublish": "mvn clean install -DskipTests -P local-publish",
-    "mvnauthor": "mvn clean install -DskipTests -P local-author"
+    "projectroot": "**THE LOCAL DIRECTORY STRUCTURE THE PROJECT**",
+    "projectapps": "**THE APPS FOLDER FOR PROJECT IN JCR_ROOT**",
+    "projectetc": "**THE ETC FOLDER FOR PROJECT IN JCR_ROOT**",
+    "projectimg": "**THE IMG FOLDER FOR PROJECT IN CLIENTLIBS**",
+    "cqroot": "**THE LOCAL DIRECTORY FOR CQ PUBLISH & AUTHOR JARS**",
+    "mvnpublish": "**mvn clean install local-publish**",
+    "mvnauthor": "**mvn clean install local-author**"
   }
 }
