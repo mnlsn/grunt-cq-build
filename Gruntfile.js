@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                   '<%= pkg.options.projectetc %>/**/*.css',
                   '<%= pkg.options.projectetc %>/**/*.js',
                   '<%= pkg.options.projectetc %>/**/*.scss'],
-          tasks: ['slingPost:author'],
+          tasks: ['slingPost:author', 'macreload'],
           options: {
             nospawn: true
           }
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
                   '<%= pkg.options.projectetc %>/**/*.css',
                   '<%= pkg.options.projectetc %>/**/*.js',
                   '<%= pkg.options.projectetc %>/**/*.scss'],
-          tasks: ['slingPost:publish'],
+          tasks: ['slingPost:publish', 'macreload'],
           options: {
             nospawn: true
           }
@@ -84,7 +84,8 @@ module.exports = function(grunt) {
           host: '<%= pkg.options.host %>',
           port: '<%= pkg.options.author %>',
           user: '<%= pkg.options.user %>',
-          pass: '<%= pkg.options.password %>'
+          pass: '<%= pkg.options.password %>',
+          exclude: ['.DS_Store']
         },
         src: "apps/",
         dest: "/apps/"
@@ -94,7 +95,8 @@ module.exports = function(grunt) {
           host: '<%= pkg.options.host %>',
           port: '<%= pkg.options.publish %>',
           user: '<%= pkg.options.user %>',
-          pass: '<%= pkg.options.password %>'
+          pass: '<%= pkg.options.password %>',
+          exclude: ['.DS_Store']
         },
         src: "apps/",
         dest: "/apps/"
@@ -104,7 +106,8 @@ module.exports = function(grunt) {
           host: '<%= pkg.options.host %>',
           port: '<%= pkg.options.publish %>',
           user: '<%= pkg.options.user %>',
-          pass: '<%= pkg.options.password %>'
+          pass: '<%= pkg.options.password %>',
+          exclude: ['.DS_Store']
         },
         src: "<%= pkg.options.projectetc %><%= pkg.options.projectimg %>",
         dest: "/<%= pkg.options.projectetc %><%= pkg.options.projectimg %>"
@@ -114,7 +117,8 @@ module.exports = function(grunt) {
           host: '<%= pkg.options.host %>',
           port: '<%= pkg.options.author %>',
           user: '<%= pkg.options.user %>',
-          pass: '<%= pkg.options.password %>'
+          pass: '<%= pkg.options.password %>',
+          exclude: ['.DS_Store']
         },
         src: "<%= pkg.options.projectetc %><%= pkg.options.projectimg %>",
         dest: "/<%= pkg.options.projectetc %><%= pkg.options.projectimg %>"
