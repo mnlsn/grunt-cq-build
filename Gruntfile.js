@@ -139,7 +139,7 @@ module.exports = function(grunt) {
   grunt.registerTask('mvn-author', 'shell:mvnauthor');
   grunt.registerTask('publish-image', 'slingPost:publishImg');
   grunt.registerTask('author-image', 'slingPost:authorImg');
-  grunt.registerTask('author', ['watch:author', 'macreload']);
-  grunt.registerTask('publish', ['watch:publish', 'macreload']);
-  grunt.registerTask('default', ['watch', 'macreload']);
+  grunt.registerTask('author', ['watch:author']);
+  grunt.registerTask('publish', ['watch:publish']);
+  grunt.registerTask('default', ['watch']);
 };

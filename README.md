@@ -64,7 +64,7 @@ I've also added a few tasks to do maven builds and start CQ instances, these are
 
 ### Notes
 
-* If you are running into EMFILE fatal errors, use `limit -n 10240` in the current session to boost the amount of open files allowed.
+* If you are running into EMFILE fatal errors, use `ulimit -n 10240` in the current session to boost the amount of open files allowed.
 * I tested out doing a complete build of the apps and etc folders, but it's slower than a full maven build without any of the extras that maven has.
 * Running a watch task and a maven build may take up all of your memory, mostly for larger projects. I recommend stopping the watch tasks with `control + c` before doing a maven build.
 * Updates on files from GIT or SVN should trigger grunt, but I have not tested this and if anyone does find out for certain, please let me know.
