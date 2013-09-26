@@ -61,6 +61,7 @@ I've also added a few tasks to do maven builds and start CQ instances, these are
 
 * `grunt mvn-author` & `grunt mvn-publish` do the maven command you specified in `package.json` file for each.
 * `grunt start-author` & `grunt start-publish` start whichever CQ instance you'd like.
+* `grunt stop-author` & `grunt stop-publish` kill the running java processes of each instance.
 
 ### Notes
 

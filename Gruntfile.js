@@ -38,11 +38,11 @@ module.exports = function(grunt) {
         },
         command: '<%= pkg.options.mvnauthor %>'
       },
-      kill: {
-        options: {
-          stdout: true
-        },
-        command: 'ps -ef | grep java'
+      killauthor: {
+        command: 'kill $(ps aux | grep "author" | grep -v \'grep\' | awk \'{print $2}\')'
+      },
+      killpublish: {
+        command: 'kill $(ps aux | grep "publish" | grep -v \'grep\' | awk \'{print $2}\')'
       }
     },
     macreload: {
@@ -135,6 +135,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('start-author', 'shell:startAuthor');
   grunt.registerTask('start-publish', 'shell:startPublish');
+  grunt.registerTask('stop-author', 'shell:killauthor');
+  grunt.registerTask('stop-publish', 'shell:killpublish');
   grunt.registerTask('mvn-publish', 'shell:mvnpublish');
   grunt.registerTask('mvn-author', 'shell:mvnauthor');
   grunt.registerTask('publish-image', 'slingPost:publishImg');
