@@ -56,9 +56,13 @@ module.exports = function(grunt) {
                   '<%= pkg.options.projectapps %>/**/*.jsp',
                   '<%= pkg.options.projectapps %>/**/*.css',
                   '<%= pkg.options.projectapps %>/**/*.scss',
+                  '<%= pkg.options.projectapps %>/**/*.html',
+                  '<%= pkg.options.projectapps %>/**/*.txt',
                   '<%= pkg.options.projectetc %>/**/*.css',
                   '<%= pkg.options.projectetc %>/**/*.js',
-                  '<%= pkg.options.projectetc %>/**/*.scss'],
+                  '<%= pkg.options.projectetc %>/**/*.scss',
+                  '<%= pkg.options.projectetc %>/**/*.html',
+                  '<%= pkg.options.projectetc %>/**/*.txt'],
           tasks: ['slingPost:author', 'macreload'],
           options: {
             nospawn: true
@@ -69,9 +73,13 @@ module.exports = function(grunt) {
                   '<%= pkg.options.projectapps %>/**/*.jsp',
                   '<%= pkg.options.projectapps %>/**/*.css',
                   '<%= pkg.options.projectapps %>/**/*.scss',
+                  '<%= pkg.options.projectapps %>/**/*.html',
+                  '<%= pkg.options.projectapps %>/**/*.txt',
                   '<%= pkg.options.projectetc %>/**/*.css',
                   '<%= pkg.options.projectetc %>/**/*.js',
-                  '<%= pkg.options.projectetc %>/**/*.scss'],
+                  '<%= pkg.options.projectetc %>/**/*.scss',
+                  '<%= pkg.options.projectetc %>/**/*.html',
+                  '<%= pkg.options.projectetc %>/**/*.txt'],
           tasks: ['slingPost:publish', 'macreload'],
           options: {
             nospawn: true
