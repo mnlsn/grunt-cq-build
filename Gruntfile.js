@@ -43,6 +43,12 @@ module.exports = function(grunt) {
       },
       killpublish: {
         command: 'kill $(ps aux | grep "publish" | grep -v \'grep\' | awk \'{print $2}\')'
+      },
+      ps: {
+        options: {
+          stdout: true
+        },
+        command: 'ps -ef | grep java'
       }
     },
     macreload: {
@@ -52,34 +58,26 @@ module.exports = function(grunt) {
     },
     watch: {
         author: {
-          files: ['<%= pkg.options.projectapps %>/**/*.js',
-                  '<%= pkg.options.projectapps %>/**/*.jsp',
-                  '<%= pkg.options.projectapps %>/**/*.css',
-                  '<%= pkg.options.projectapps %>/**/*.scss',
-                  '<%= pkg.options.projectapps %>/**/*.html',
-                  '<%= pkg.options.projectapps %>/**/*.txt',
-                  '<%= pkg.options.projectetc %>/**/*.css',
-                  '<%= pkg.options.projectetc %>/**/*.js',
-                  '<%= pkg.options.projectetc %>/**/*.scss',
-                  '<%= pkg.options.projectetc %>/**/*.html',
-                  '<%= pkg.options.projectetc %>/**/*.txt'],
+          files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.js',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.jsp',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.css',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.scss',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.less',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.html',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.txt'],
           tasks: ['slingPost:author', 'macreload'],
           options: {
             nospawn: true
           }
         },
         publish: {
-          files: ['<%= pkg.options.projectapps %>/**/*.js',
-                  '<%= pkg.options.projectapps %>/**/*.jsp',
-                  '<%= pkg.options.projectapps %>/**/*.css',
-                  '<%= pkg.options.projectapps %>/**/*.scss',
-                  '<%= pkg.options.projectapps %>/**/*.html',
-                  '<%= pkg.options.projectapps %>/**/*.txt',
-                  '<%= pkg.options.projectetc %>/**/*.css',
-                  '<%= pkg.options.projectetc %>/**/*.js',
-                  '<%= pkg.options.projectetc %>/**/*.scss',
-                  '<%= pkg.options.projectetc %>/**/*.html',
-                  '<%= pkg.options.projectetc %>/**/*.txt'],
+          files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.js',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.jsp',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.css',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.scss',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.less',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.html',
+                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.txt'],
           tasks: ['slingPost:publish', 'macreload'],
           options: {
             nospawn: true
@@ -108,37 +106,16 @@ module.exports = function(grunt) {
         },
         src: "apps/",
         dest: "/apps/"
-      },
-      publishImg: {
-        options: {
-          host: '<%= pkg.options.host %>',
-          port: '<%= pkg.options.publish %>',
-          user: '<%= pkg.options.user %>',
-          pass: '<%= pkg.options.password %>',
-          exclude: ['.DS_Store']
-        },
-        src: "<%= pkg.options.projectetc %><%= pkg.options.projectimg %>",
-        dest: "/<%= pkg.options.projectetc %><%= pkg.options.projectimg %>"
-      },
-      authorImg: {
-        options: {
-          host: '<%= pkg.options.host %>',
-          port: '<%= pkg.options.author %>',
-          user: '<%= pkg.options.user %>',
-          pass: '<%= pkg.options.password %>',
-          exclude: ['.DS_Store']
-        },
-        src: "<%= pkg.options.projectetc %><%= pkg.options.projectimg %>",
-        dest: "/<%= pkg.options.projectetc %><%= pkg.options.projectimg %>"
       }
     }
   });
 
   grunt.event.on('watch', function(action, filepath, target) {
+    var destination = '/' + path.dirname(filepath).substring(path.dirname(filepath).indexOf("jcr_root/") + 9);
     grunt.config.set(['slingPost', 'author', 'src'], [path.dirname(filepath) + '/']);
-    grunt.config.set(['slingPost', 'author', 'dest'], ['/' + path.dirname(filepath)]);
+    grunt.config.set(['slingPost', 'author', 'dest'], [destination]);
     grunt.config.set(['slingPost', 'publish', 'src'], [path.dirname(filepath) + '/']);
-    grunt.config.set(['slingPost', 'publish', 'dest'], ['/' + path.dirname(filepath)]);
+    grunt.config.set(['slingPost', 'publish', 'dest'], [destination]);
   });
 
   grunt.registerTask('start-author', 'shell:startAuthor');

@@ -1,6 +1,6 @@
 {
   "name": "grunt-cq-build",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-shell": "~0.3.1",
@@ -14,12 +14,9 @@
     "publish": "4503",
     "user": "admin",
     "password": "admin",
-    "projectroot": "**THE LOCAL DIRECTORY STRUCTURE THE PROJECT**",
-    "projectapps": "**THE APPS FOLDER FOR PROJECT IN JCR_ROOT**",
-    "projectetc": "**THE ETC FOLDER FOR PROJECT IN JCR_ROOT**",
-    "projectimg": "**THE IMG FOLDER FOR PROJECT IN CLIENTLIBS**",
-    "cqroot": "**THE LOCAL DIRECTORY FOR CQ PUBLISH & AUTHOR JARS**",
-    "mvnpublish": "**mvn clean install local-publish**",
-    "mvnauthor": "**mvn clean install local-author**"
+    "project": "** LOCAL PATH TO PROJECT UI FOLDER - EX: Users/mnlsn/projects/project/project-ui/ **",
+    "cqroot": "** THE LOCAL PATH FOR CQ PUBLISH & AUTHOR JARS - EX: Users/mnlsn/projects/cq56/ **",
+    "mvnpublish": "** EX: mvn clean install local-publish**",
+    "mvnauthor": "** EX: mvn clean install local-author**"
   }
 }
