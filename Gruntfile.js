@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         options: {
           stdout: true,
           execOptions: {
-            cwd: '/<%= pkg.options.projectroot %>'
+            cwd: '/<%= pkg.options.project %>'
           }
         },
         command: '<%= pkg.options.mvnpublish %>'
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         options: {
           stdout: true,
           execOptions: {
-            cwd: '/<%= pkg.options.projectroot %>'
+            cwd: '/<%= pkg.options.project %>'
           }
         },
         command: '<%= pkg.options.mvnauthor %>'
