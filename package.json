@@ -11,7 +11,8 @@
     "grunt-shell": "~0.6.4",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-sling-content": "~0.1.1",
-    "grunt-macreload": "~0.1.3"
+    "grunt-macreload": "~0.1.3",
+    "load-grunt-tasks": "~0.2.1"
   },
   "options": {
     "host": "localhost",

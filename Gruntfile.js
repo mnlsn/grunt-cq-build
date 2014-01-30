@@ -1,10 +1,9 @@
 path = require('path');
 
 module.exports = function(grunt) {
-  grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-sling-content');
-  grunt.loadNpmTasks('grunt-macreload');
+  // Load all Grunt tasks
+  require('load-grunt-tasks')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     shell: {
