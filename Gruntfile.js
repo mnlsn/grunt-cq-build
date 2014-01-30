@@ -58,32 +58,22 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-        author: {
-          files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.js',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.jsp',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.css',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.scss',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.less',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.html',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.txt'],
-          tasks: ['slingPost:author', 'macreload'],
-          options: {
-            nospawn: true
-          }
+      author: {
+        files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.{css,html,js,jsp,less,sass,scss,txt}',
+                '!/<%= pkg.options.project %>src/main/content/jcr_root/node_modules/**'],
+        tasks: ['slingPost:author', 'macreload'],
+        options: {
+          spawn: false,
         },
-        publish: {
-          files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.js',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.jsp',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.css',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.scss',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.less',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.html',
-                  '/<%= pkg.options.project %>src/main/content/jcr_root/**/*.txt'],
-          tasks: ['slingPost:publish', 'macreload'],
-          options: {
-            nospawn: true
-          }
-        }
+      },
+      publish: {
+        files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.{css,html,js,jsp,less,sass,scss,txt}',
+                '!/<%= pkg.options.project %>src/main/content/jcr_root/node_modules/**'],
+        tasks: ['slingPost:publish', 'macreload'],
+        options: {
+          spawn: false,
+        },
+      },
     },
     slingPost: {
       author: {
