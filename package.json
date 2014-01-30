@@ -1,6 +1,11 @@
 {
   "name": "grunt-cq-build",
   "version": "0.2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mnlsn/grunt-cq-build"
+  },
+  "description": "Watch files edited and automatically deploy them to CRX",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-shell": "~0.3.1",
