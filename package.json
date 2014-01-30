@@ -12,7 +12,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-sling-content": "~0.1.1",
     "grunt-macreload": "~0.1.3",
-    "load-grunt-tasks": "~0.2.1"
+    "load-grunt-tasks": "~0.2.1",
+    "time-grunt": "~0.2.8"
   },
   "options": {
     "host": "localhost",

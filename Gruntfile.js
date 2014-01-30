@@ -3,6 +3,8 @@ path = require('path');
 module.exports = function(grunt) {
   // Load all Grunt tasks
   require('load-grunt-tasks')(grunt);
+  // Show elapsed time after tasks run
+  require('time-grunt')(grunt);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
