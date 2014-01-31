@@ -59,16 +59,14 @@ module.exports = function(grunt) {
     },
     watch: {
       author: {
-        files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.{css,html,js,jsp,less,sass,scss,txt}',
-                '!/<%= pkg.options.project %>src/main/content/jcr_root/node_modules/**'],
+        files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.{css,html,js,jsp,less,sass,scss,txt}'],
         tasks: ['slingPost:author', 'macreload'],
         options: {
           spawn: false,
         },
       },
       publish: {
-        files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.{css,html,js,jsp,less,sass,scss,txt}',
-                '!/<%= pkg.options.project %>src/main/content/jcr_root/node_modules/**'],
+        files: ['/<%= pkg.options.project %>src/main/content/jcr_root/**/*.{css,html,js,jsp,less,sass,scss,txt}'],
         tasks: ['slingPost:publish', 'macreload'],
         options: {
           spawn: false,
@@ -102,7 +100,13 @@ module.exports = function(grunt) {
   });
 
   grunt.event.on('watch', function(action, filepath, target) {
-    var destination = '/' + path.dirname(filepath).substring(path.dirname(filepath).indexOf("jcr_root/") + 9);
+    var destination;
+    if (path.dirname(filepath).indexOf("jcr_root/") !== -1) {
+      destination = '/' + path.dirname(filepath).substring(path.dirname(filepath).indexOf("jcr_root/") + 9);
+    } else {
+      destination = '/' + path.dirname(filepath);
+    }
+
     grunt.config.set(['slingPost', 'author', 'src'], [path.dirname(filepath) + '/']);
     grunt.config.set(['slingPost', 'author', 'dest'], [destination]);
     grunt.config.set(['slingPost', 'publish', 'src'], [path.dirname(filepath) + '/']);
