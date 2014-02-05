@@ -121,5 +121,5 @@ module.exports = function(grunt) {
   grunt.registerTask('mvn-author', 'shell:mvnauthor');
   grunt.registerTask('author', ['watch:author']);
   grunt.registerTask('publish', ['watch:publish']);
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['watch:author']);
 };
