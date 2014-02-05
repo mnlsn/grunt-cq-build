@@ -9,13 +9,13 @@
   "description": "Watch files edited and automatically deploy them to CRX",
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-dev-update": "~0.4.5",
-    "grunt-shell": "~0.6.4",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-sling-content": "~0.1.1",
+    "grunt-dev-update": "~0.4.5",
     "grunt-macreload": "~0.1.3",
-    "load-grunt-tasks": "~0.2.1",
-    "time-grunt": "~0.2.8"
+    "grunt-shell": "~0.6.4",
+    "grunt-sling-content": "~0.1.1",
+    "load-grunt-tasks": "~0.3.0",
+    "time-grunt": "~0.2.9"
   },
   "options": {
     "host": "localhost",
