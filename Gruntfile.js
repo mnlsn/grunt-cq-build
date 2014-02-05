@@ -8,6 +8,14 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    devUpdate: {
+      checkUpdate: {
+        options: {
+          reportUpdated: false,
+          updateType: 'report'
+        }
+      }
+    },
     shell: {
       startPublish: {
         options: {
@@ -113,6 +121,7 @@ module.exports = function(grunt) {
     grunt.config.set(['slingPost', 'publish', 'dest'], [destination]);
   });
 
+  grunt.registerTask('check', 'devUpdate');
   grunt.registerTask('start-author', 'shell:startAuthor');
   grunt.registerTask('start-publish', 'shell:startPublish');
   grunt.registerTask('stop-author', 'shell:killauthor');
