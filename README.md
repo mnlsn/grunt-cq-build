@@ -51,8 +51,11 @@ I've also added a few tasks to do maven builds and start and stop instances, the
 * `grunt start-author` & `grunt start-publish` start whichever CQ instance you'd like.
 * `grunt stop-author` & `grunt stop-publish` kill the running java processes of each instance.
 
+If you’d like to ensure that the devDependencies are up-to-date run `grunt check`, which will print out a list of dependencies that can be updated.
+
 ### Notes
 
 * If you are running into EMFILE fatal errors, use `ulimit -n 10240` in the current session to boost the amount of open files allowed.
+* To verify that you’re watching the correct directories, run either of your watch tasks (`grunt author` or `grunt publish`) with the `--verbose` flag.
 * Running a watch task and a maven build may take up all of your memory, mostly for larger projects. I recommend stopping the watch tasks with `control + c` before doing a maven build.
 * If you make edits to files while not running one of the grunt tasks, the changes will be lost unless you do a maven build.
